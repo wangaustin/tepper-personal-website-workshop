@@ -1,18 +1,17 @@
 {
+    "version": 2,
     "builds": [
       {
         "src": "package.json",
         "use": "@vercel/static-build",
         "config": {
-          "installCommand": "npm install && curl -sSL https://go.dev/dl/go1.22.0.linux-amd64.tar.gz | tar -C /tmp -xzf - && mv /tmp/go ./go",
-          "buildCommand": "GOROOT=$(pwd)/go PATH=$(pwd)/go/bin:$PATH npm run build"
+          "installCommand": "npm install",
+          "buildCommand": "npm run build",
+          "outputDirectory": "public"
         }
       }
     ],
-    "build": {
-      "env": {
-        "GOROOT": "./go"
-      }
+    "env": {
+      "HUGO_VERSION": "0.128.2"
     }
-  }
-  
+  }  
